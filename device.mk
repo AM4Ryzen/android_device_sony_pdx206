@@ -32,6 +32,10 @@ DEVICE_PACKAGE_OVERLAYS += \
 TARGET_SCREEN_HEIGHT := 2520
 TARGET_SCREEN_WIDTH := 1080
 
+# Custom sony stuff
+# Note: closed sourced
+#$(call inherit-product, device/sony/xperia-common/xperia.mk)
+
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
@@ -210,7 +214,10 @@ PRODUCT_PACKAGES += \
 
 # Remove unwanted packages
 PRODUCT_PACKAGES += \
-    RemovePackages
+
+# Device specific overlay
+DEVICE_PACKAGE_OVERLAYS += \
+     $(LOCAL_PATH)/overlay-pe
 
 PRODUCT_BUILD_SUPER_PARTITION := false
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
