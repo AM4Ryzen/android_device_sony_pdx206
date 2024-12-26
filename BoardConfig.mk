@@ -22,13 +22,6 @@ TARGET_SPECIFIC_HEADER_PATH := $(COMMON_PATH)/include
 
 BUILD_BROKEN_DUP_RULES := true
 
-# Boot animation
-TARGET_SCREEN_HEIGHT := 2560
-TARGET_SCREEN_WIDTH := 1440
-
-# Display
-TARGET_SCREEN_DENSITY := 417
-
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
@@ -92,6 +85,9 @@ TARGET_ODM_PROP += $(COMMON_PATH)/odm.prop
 TARGET_PRODUCT_PROP += $(COMMON_PATH)/product.prop
 TARGET_SYSTEM_PROP += $(COMMON_PATH)/system.prop
 
+# ANT+
+#BOARD_ANT_WIRELESS_DEVICE := "qualcomm-hidl"
+
 # Treble
 BOARD_VNDK_VERSION := current
 
@@ -118,12 +114,25 @@ endif
 
 # Display
 TARGET_USES_HWC2 := true
+# These are part of pdx201 source. Seems to work fine without, but will check if these improve functionality later.
+# This may also depend on qcom-caf/display/ which maybe not even a thing for this phone. Will just have to see later.
+#TARGET_USES_GRALLOC1 := true
+#TARGET_USES_ION := true
+
+#MAX_EGL_CACHE_KEY_SIZE := 12*1024
+#MAX_EGL_CACHE_SIZE := 2048*1024
+
+#OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 
 # DRM
 TARGET_ENABLE_MEDIADRM_64 := true
 
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/config.fs
+
+# FM (to do when I have bootloader unlocked Japan model)
+#BOARD_HAVE_QCOM_FM := true
+#BOARD_HAS_QCA_FM_SOC := cherokee
 
 # HIDL
 DEVICE_FRAMEWORK_MANIFEST_FILE := $(COMMON_PATH)/framework_manifest.xml

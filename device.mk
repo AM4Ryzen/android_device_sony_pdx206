@@ -32,6 +32,9 @@ DEVICE_PACKAGE_OVERLAYS += \
 TARGET_SCREEN_HEIGHT := 2520
 TARGET_SCREEN_WIDTH := 1080
 
+# Display
+TARGET_SCREEN_DENSITY := 420
+
 # Custom sony stuff
 # Note: closed sourced
 #$(call inherit-product, device/sony/xperia-common/xperia.mk)
@@ -75,6 +78,10 @@ AB_OTA_POSTINSTALL_CONFIG += \
 
 PRODUCT_PACKAGES += \
     otapreopt_script
+
+# ANT+
+#PRODUCT_PACKAGES += \
+#    AntHalService
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -126,6 +133,12 @@ PRODUCT_PACKAGES += \
 # fastbootd
 PRODUCT_PACKAGES += \
     fastbootd
+
+# FM
+#PRODUCT_PACKAGES += \
+#    FM2 \
+#    libqcomfm_jni \
+#    qcom.fmradio
 
 # HIDL
 PRODUCT_PACKAGES += \
@@ -214,10 +227,6 @@ PRODUCT_PACKAGES += \
 
 # Remove unwanted packages
 PRODUCT_PACKAGES += \
-
-# Device specific overlay
-DEVICE_PACKAGE_OVERLAYS += \
-     $(LOCAL_PATH)/overlay-pe
 
 PRODUCT_BUILD_SUPER_PARTITION := false
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
