@@ -45,12 +45,6 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 PRODUCT_PACKAGES += \
     SemcCameraUI
 
-# DTBO
-LOCAL_DTB := $(LOCAL_PATH)/prebuilt/dtb.img
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_DTB):dtb.img
-
 # Device specific overlay
 DEVICE_PACKAGE_OVERLAYS += \
      $(LOCAL_PATH)/overlay-lineage
