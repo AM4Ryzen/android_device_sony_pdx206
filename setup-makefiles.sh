@@ -8,8 +8,9 @@
 
 set -e
 
-DEVICE_COMMON=pdx206
-VENDOR=sony
+export DEVICE_COMMON=pdx206
+export DEVICE_COMMON=edo-common
+export VENDOR=sony
 
 # Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"

@@ -1,6 +1,6 @@
 [
   {
-    "repository": "android_kernel_sony_sm8250",
-    "target_path": "kernel/sony/sm8250"
+    "repository": "android_device_sony_edo-common",
+    "target_path": "device/sony/edo-common"
   }
 ]
