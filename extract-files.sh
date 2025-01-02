@@ -8,8 +8,11 @@
 
 set -e
 
-DEVICE_COMMON=pdx206
-VENDOR=sony
+# Required!
+export DEVICE_COMMON=pdx206
+export VENDOR=sony
+
+export DEVICE_BRINGUP_YEAR=2020
 
 # Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"

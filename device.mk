@@ -33,10 +33,6 @@ TARGET_SCREEN_WIDTH := 1080
 # Display
 TARGET_SCREEN_DENSITY := 420
 
-# Custom sony stuff
-# Note: closed sourced
-#$(call inherit-product, device/sony/xperia-common/xperia.mk)
-
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
@@ -44,12 +40,6 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 # Using Sony Vendor Camera
 PRODUCT_PACKAGES += \
     SemcCameraUI
-
-# DTBO
-LOCAL_DTB := $(LOCAL_PATH)/prebuilt/dtb.img
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_DTB):dtb.img
 
 # Device specific overlay
 DEVICE_PACKAGE_OVERLAYS += \
