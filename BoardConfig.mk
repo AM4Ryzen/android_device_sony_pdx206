@@ -15,7 +15,7 @@
 #
 
 # Inherit from sony edo-common
--include device/sony/edo-common/BoardConfigCommon.mk
+-include device/sony/edo-common/PlatformConfig.mk
 
 DEVICE_PATH := device/sony/pdx206
 
