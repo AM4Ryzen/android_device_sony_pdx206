@@ -20,11 +20,11 @@
 DEVICE_PATH := device/sony/pdx206
 
 # Kernel
+BOARD_KERNEL_CMDLINE += buildproduct=pdx206
 TARGET_KERNEL_SOURCE := kernel/sony/sm8250
 TARGET_COMPILE_WITH_MSM_KERNEL := true
 TARGET_KERNEL_CONFIG := pdx206-bbn_defconfig
 TARGET_KERNEL_CLANG_COMPILE := true
-NEED_KERNEL_MODULE_VENDOR_OVERLAY := true
 
 BOARD_MKBOOTIMG_ARGS += --base $(BOARD_KERNEL_BASE)
 BOARD_MKBOOTIMG_ARGS += --pagesize $(BOARD_KERNEL_PAGESIZE)
@@ -39,9 +39,6 @@ BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 TARGET_ODM_PROP += $(DEVICE_PATH)/odm.prop
 TARGET_PRODUCT_PROP += $(DEVICE_PATH)/product.prop
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
-
-# Recovery
-TARGET_RECOVERY_DEVICE_DIRS += device/sony/pdx206
 
 # Inherit from the proprietary version
 -include vendor/sony/pdx206/BoardConfigVendor.mk
