@@ -1,6 +1,8 @@
 # Stock package version: Sony/pdx206/pdx206:10/QKQ1.200108.002/1:user/release-keys
 
 # ANT+
+lib/libantradio.so
+lib64/libantradio.so
 product/lib/com.qualcomm.qti.ant@1.0.so
 product/lib64/com.qualcomm.qti.ant@1.0.so
 
