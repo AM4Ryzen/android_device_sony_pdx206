@@ -14,6 +14,14 @@
 # limitations under the License.
 #
 
+#
+# This file sets variables that control the way modules are built
+# thorughout the system. It should not be used to conditionally
+# disable makefiles (the proper mechanism to control what gets
+# included in a build is to use PRODUCT_PACKAGES in a product
+# definition file).
+#
+
 # Inherit from common
 $(call inherit-product, device/sony/edo-common/edo.mk)
 
@@ -39,3 +47,15 @@ DEVICE_PACKAGE_OVERLAYS += \
 
 # Remove unwanted packages
 PRODUCT_PACKAGES += \
+    RemovePackages
+
+#HIDL
+PRODUCT_PACKAGES += \
+    android.hidl.base@1.0 \
+    android.hidl.base@1.0_system \
+    android.hidl.manager@1.0
+
+# NFC
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/nfc/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf \
+    $(LOCAL_PATH)/nfc/libnfc-nxp_RF.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp_RF.conf
