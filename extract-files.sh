@@ -6,11 +6,16 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+# If we're being sourced by the common script that we called,
+# stop right here. No need to go down the rabbit hole.
+if [ "${BASH_SOURCE[0]}" != "${0}" ]; then
+    return
+fi
+
 set -e
 
 # Required!
 export DEVICE_COMMON=pdx206
-export DEVICE_COMMON=edo-common
 export VENDOR=sony
 
 export DEVICE_BRINGUP_YEAR=2020
@@ -21,7 +26,7 @@ if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
 
 ANDROID_ROOT="${MY_DIR}/../../.."
 
-HELPER="${ANDROID_ROOT}/tools/extract-utils/extract_utils.sh"
+HELPER="${ANDROID_ROOT}/vendor/lineage/build/tools/extract_utils.sh"
 if [ ! -f "${HELPER}" ]; then
     echo "Unable to find helper script at ${HELPER}"
     exit 1
@@ -32,17 +37,13 @@ source "${HELPER}"
 CLEAN_VENDOR=true
 
 ONLY_COMMON=
-ONLY_TARGET=
-KANG=
 SECTION=
+KANG=
 
 while [ "${#}" -gt 0 ]; do
     case "${1}" in
-        --only-common )
-                ONLY_COMMON=true
-                ;;
-        --only-target )
-                ONLY_TARGET=true
+        -o | --only-common )
+                ONLY_COMMON=false
                 ;;
         -n | --no-cleanup )
                 CLEAN_VENDOR=false

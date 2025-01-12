@@ -9,7 +9,7 @@
 set -e
 
 export DEVICE_COMMON=pdx206
-export DEVICE_COMMON=edo-common
+export INITIAL_COPYRIGHT_YEAR=2020
 export VENDOR=sony
 
 # Load extract_utils and do some sanity checks
@@ -18,7 +18,7 @@ if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
 
 ANDROID_ROOT="${MY_DIR}/../../.."
 
-HELPER="${ANDROID_ROOT}/tools/extract-utils/extract_utils.sh"
+HELPER="${ANDROID_ROOT}/vendor/lineage/build/tools/extract_utils.sh"
 if [ ! -f "${HELPER}" ]; then
     echo "Unable to find helper script at ${HELPER}"
     exit 1
